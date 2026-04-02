@@ -57,19 +57,16 @@ export default function Home() {
         }
       `}</style>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center justify-center p-4" dir="rtl">
-        {/* Arabic header - outside the card, centered */}
         <div className="text-center mb-8">
           <div className="text-3xl mb-2">🫵🏻 🤣 هكروك يا طصطوص ؟</div>
           <div className="text-lg text-gray-600 dark:text-gray-300">موقع مخصص لطصطوص لانو عم يهكروه</div>
         </div>
 
-        {/* Main card */}
         <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
           <h1 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
             تحميل الفيديوهات
           </h1>
 
-          {/* URL Input */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               رابط الفيديو
@@ -84,7 +81,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Fetch Button with Spinner */}
           <button
             onClick={fetchFormats}
             disabled={loading}
@@ -92,25 +88,9 @@ export default function Home() {
           >
             {loading ? (
               <>
-                <svg
-                  className="animate-spin h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
                 جاري التحميل...
               </>
@@ -125,12 +105,9 @@ export default function Home() {
             </div>
           )}
 
-          {/* Video Info */}
           {info && (
             <div className="mt-4 flex items-center space-x-3 space-x-reverse p-3 bg-gray-50 dark:bg-gray-700 rounded-md">
-              {info.thumbnail && (
-                <img src={info.thumbnail} alt="thumbnail" className="w-20 h-auto rounded" />
-              )}
+              {info.thumbnail && <img src={info.thumbnail} alt="thumbnail" className="w-20 h-auto rounded" />}
               <div>
                 <h2 className="font-semibold text-gray-800 dark:text-white">{info.title}</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">المدة: {info.duration} ثانية</p>
@@ -138,7 +115,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Quality Selection */}
           {formats.length > 0 && (
             <div className="mt-4">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -151,7 +127,7 @@ export default function Home() {
               >
                 {formats.map((fmt) => (
                   <option key={fmt.formatId} value={fmt.formatId}>
-                    {fmt.quality} ({fmt.ext}) {fmt.hasAudio ? "+ صوت" : " (فيديو فقط)"}
+                    {fmt.quality} ({fmt.ext})
                   </option>
                 ))}
               </select>
@@ -162,25 +138,9 @@ export default function Home() {
               >
                 {downloadLoading ? (
                   <>
-                    <svg
-                      className="animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                     جاري التحميل...
                   </>
